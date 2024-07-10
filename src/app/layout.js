@@ -1,3 +1,4 @@
+import Navbar from "@/Components/Navbar/Navbar";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -11,7 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} h-auto dark:bg-[#122033] dark:text-[#fff] bg-[#fff] text-[#000] ease-in-out duration-1000`}>
+        <Navbar></Navbar>
+        {children}
+        </body>
     </html>
   );
 }
