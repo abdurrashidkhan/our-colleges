@@ -1,0 +1,21 @@
+#admission_banner {
+  background-image: linear-gradient(to bottom right, #005df3ce, #ff00009c),
+    url("../../assets/images/Admission/admission.jpg");
+  height: 50vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.admission_content {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%);
+  -webkit-transform: translate(0%, -50%);
+  -moz-transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%);
+  -o-transform: translate(0%, -50%);
+  overflow: hidden;
+}

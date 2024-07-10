@@ -40,3 +40,13 @@ Based on the job description provided, here's a summary of the requirements and 
 
 ### Example URL:
 While I can't provide a live URL due to my current capabilities, you can create a project based on this description using the outlined technologies and design principles. Ensure to test thoroughly across different devices and browsers for optimal performance and user experience. If you need further assistance with specific parts of implementation or have more detailed questions, feel free to ask!
+
+
+
+
+
+
+2.Dhaka University
+0.Jahangirnagar University
+1.Khulna University
+3.University of Rajshahi

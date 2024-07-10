@@ -11,13 +11,18 @@ export default function Banner() {
                   Welcome Our College.
                 </h1>
                 <p className="py-6 text-[#fff] tracking-[1px]">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Ullam quasi saepe asperiores nobis similique accusantium at
-                  consequatur dolor maiores, iure, quod nulla recusandae rem
-                  atque repellat illum. Maiores eos error dolor esse modi sequi
-                  iste aliquid quaerat? Ipsam recusandae explicabo sunt
-                  asperiores fugiat, voluptas vel ab voluptates! Est, quisquam
-                  saepe?
+                  Welcome to our unified platform, bringing together three
+                  esteemed institutions: Oakridge College, Maplewood University,
+                  and Pinecrest Institute. Our website offers a seamless
+                  experience for students to book a variety of campus
+                  facilities, including libraries, study rooms, sports
+                  complexes, and event spaces. With a user-friendly interface,
+                  students can effortlessly manage their bookings, ensuring they
+                  have the resources they need for academic success and
+                  extracurricular activities. Whether you&apos;re reserving a
+                  study room for group work or scheduling time at the gym, our
+                  platform is designed to streamline your college experience,
+                  saving you time and enhancing your productivity.
                 </p>
                 <button className="bg-[#A32D47] text-[#fff]  text-xl py-1.5 px-4 rounded hover:px-5 ease-in-out duration-500">
                   Learn more
