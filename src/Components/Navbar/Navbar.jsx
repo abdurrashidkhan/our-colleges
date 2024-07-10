@@ -19,7 +19,7 @@ export default function Navbar() {
   // routing
   const routing = [
     { path: "/", name: "Home" },
-    { path: "/events-sports", name: "Events & Sports" },
+    // { path: "/events-sports", name: "Events & Sports" },
     { path: "/colleges", name: "Colleges" },
     { path: "/admission", name: "Admission" },
     { path: "/my-College", name: "My College" },
