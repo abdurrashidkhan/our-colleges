@@ -2,41 +2,26 @@ import connectMongodb from "@/lib/mongodb";
 import admission from "@/models/admissionSchema";
 import { NextResponse } from "next/server";
 
-export async function POST(request, { params }) {
-  const { email } = params;
+export async function POST(request) {
+
   const {
-    sscRoll,
-    hscRoll,
-    sscBoard,
-    hscBoard,
-    sscPassingYear,
-    hscPassingYear,
-    college,
-    selectSubject,
-    uid,
-    emailVerified,
-    image,
-    accessToken,
-    studentEmail,
+    email,
     studentName,
+    number,
+    address,
+    birthday,
+    subject,
+    image
   } = await request.json();
   const data = {
-    sscRoll,
-    hscRoll,
-    sscBoard,
-    hscBoard,
-    sscPassingYear,
-    hscPassingYear,
-    college,
-    selectSubject,
-    uid,
-    emailVerified,
-    image,
-    accessToken,
-    studentEmail,
+    email,
     studentName,
+    number,
+    address,
+    birthday,
+    subject,
+    image
   };
-  const filter = { studentEmail: email };
   await connectMongodb();
     await admission.create(data);
     return NextResponse.json({

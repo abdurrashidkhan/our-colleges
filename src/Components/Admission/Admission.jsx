@@ -42,20 +42,12 @@ export default function AdmissionForm() {
         if (result.success) {
           const img = result.data.url;
           const admissionInfo = {
-            sscRoll: data.sscRoll,
-            hscRoll: data.hscRoll,
-            sscBoard: data.sscBoard,
-            hscBoard: data.hscBoard,
-            sscPassingYear: data.sscPassingYear,
-            hscPassingYear: data.hscPassingYear,
-            college: data.college,
-            selectSubject: data.selectSubject,
-            studentEmail: user?.email,
-            studentName: user?.displayName,
-            uid: user?.uid,
-            emailVerified: user?.emailVerified,
-            accessToken: user?.accessToken,
-            date: new Date(),
+            studentName: data.studentName,
+            number: data.number,
+            subject: data.selectSubject,
+            email: user?.email,
+            address: data.address,
+            birthday: data.birthday,
             image: img,
             // date: new Date(),
           };
@@ -84,52 +76,52 @@ export default function AdmissionForm() {
           <div className="p-4 text-start">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center  gap-5">
               <div className="w-full">
-                <label htmlFor="sscRoll" className=" ">
-                  SSC Roll{" "}
+                <label htmlFor="studentName" className=" ">
+                  Student Name{" "}
                 </label>
                 <input
-                  id="sscRoll"
-                  name="sscRoll"
-                  type="number"
+                  id="studentName"
+                  name="studentName"
+                  type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Type Here SSC Roll "
-                  {...register("sscRoll", {
+                  placeholder="Enter Your Full Name"
+                  {...register("studentName", {
                     required: {
                       value: true,
                       maxLength: 60,
-                      message: "enter your ssc roll ",
+                      message: "enter your full name ",
                     },
                   })}
                 />
                 <label className="">
-                  {errors.sscRoll?.type === "required" && (
+                  {errors.studentName?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.sscRoll.message}
+                      {errors.studentName.message}
                     </span>
                   )}
                 </label>
               </div>
               <div className="w-full">
-                <label htmlFor="hscRoll" className=" ">
-                  HSC Roll{" "}
+                <label htmlFor="email" className=" ">
+                  Email Address{" "}
                 </label>
                 <input
-                  id="hscRoll"
-                  name="hscRoll"
-                  type="number"
+                  id="email"
+                  name="email"
+                  type="email"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Type Here HSC Roll"
-                  {...register("hscRoll", {
+                  placeholder="Enter your email address"
+                  {...register("email", {
                     required: {
                       value: true,
-                      message: "enter your hsc roll",
+                      message: "enter your email address",
                     },
                   })}
                 />
                 <label className="">
-                  {errors.hscRoll?.type === "required" && (
+                  {errors.email?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.hscRoll.message}
+                      {errors.email.message}
                     </span>
                   )}
                 </label>
@@ -138,61 +130,51 @@ export default function AdmissionForm() {
 
             <div className="grid grid-cols-1 md:grid-cols-2  items-center gap-5 pt-3">
               <div className="w-full">
-                <label htmlFor="sscBoard" className=" ">
-                  Board{" "}
+                <label htmlFor="number" className=" ">
+                  Mobile Number{" "}
                 </label>
-                <select
-                  id="sscBoard"
+                <input
+                  id="number"
+                  name="number"
+                  type="number"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  {...register("sscBoard", {
+                  placeholder="Enter your number"
+                  {...register("number", {
                     required: {
                       value: true,
-                      message: "Select Board",
+                      message: "enter your number",
                     },
                   })}
-                >
-                  <option selected disabled>
-                    Select Board
-                  </option>
-                  <option value="dhaka">Dhaka</option>
-                  <option value="comilla">Comilla</option>
-                  <option value=" chattogram ">Chattogram</option>
-                  <option value="rajshahi ">Rajshahi </option>
-                </select>
+                />
                 <label className="">
-                  {errors.sscBoard?.type === "required" && (
+                  {errors.number?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.sscBoard.message}
+                      {errors.number.message}
                     </span>
                   )}
                 </label>
               </div>
               <div className="w-full">
-                <label htmlFor="hscBoard" className=" ">
-                  Board{" "}
+                <label htmlFor="birthday" className=" ">
+                  Date of Birth{" "}
                 </label>
-                <select
-                  id="hscBoard"
+                <input
+                  id="birthday"
+                  name="birthday"
+                  type="date"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  {...register("hscBoard", {
+                  placeholder="Enter your birthday"
+                  {...register("birthday", {
                     required: {
                       value: true,
-                      message: "Select hscBoard",
+                      message: "enter your birthday",
                     },
                   })}
-                >
-                  <option selected disabled>
-                    Select Board
-                  </option>
-                  <option value="dhaka">Dhaka</option>
-                  <option value="comilla">Comilla</option>
-                  <option value=" chattogram ">Chattogram</option>
-                  <option value="rajshahi ">Rajshahi </option>
-                </select>
+                />
                 <label className="">
-                  {errors.hscBoard?.type === "required" && (
+                  {errors.birthday?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.hscBoard.message}
+                      {errors.birthday.message}
                     </span>
                   )}
                 </label>
@@ -200,94 +182,6 @@ export default function AdmissionForm() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-5 pt-3">
-              <div className="w-full">
-                <label htmlFor="sscPassingYear" className=" ">
-                  Passing Year{" "}
-                </label>
-                <input
-                  id="sscPassingYear"
-                  name="sscPassingYear"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Type Here Passing Year "
-                  {...register("sscPassingYear", {
-                    required: {
-                      value: true,
-                      message: "Enter Your Passing Year",
-                    },
-                  })}
-                />
-                <label className="">
-                  {errors.sscPassingYear?.type === "required" && (
-                    <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.sscPassingYear.message}
-                    </span>
-                  )}
-                </label>
-              </div>
-              <div className="w-full">
-                <label htmlFor="hscPassingYear" className=" ">
-                  Passing Year{" "}
-                </label>
-                <input
-                  id="hscPassingYear"
-                  name="hscPassingYear"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Type Here Passing Year "
-                  {...register("hscPassingYear", {
-                    required: {
-                      value: true,
-                      message: "Enter Your Passing Year",
-                    },
-                  })}
-                />
-                <label className="">
-                  {errors.hscPassingYear?.type === "required" && (
-                    <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.hscPassingYear.message}
-                    </span>
-                  )}
-                </label>
-              </div>
-            </div>
-            <h2 className="py-4 font-semibold">Step:02</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-5 pt-3">
-              <div className="w-full">
-                <label htmlFor="college" className=" ">
-                  Select College{" "}
-                </label>
-                <select
-                  id="college"
-                  name="college"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  {...register("college", {
-                    required: {
-                      value: true,
-                      message: "Select College",
-                    },
-                  })}
-                >
-                  <option selected disabled>
-                    Select College
-                  </option>
-                  <option value="dhaka-university">Dhaka University</option>
-                  <option value="jahangirnagar-university ">
-                    Jahangirnagar University
-                  </option>
-                  <option value="khulna-university ">Khulna University </option>
-                  <option value="rajshahi-university ">
-                    University of Rajshahi
-                  </option>
-                </select>
-                <label className="">
-                  {errors.college?.type === "required" && (
-                    <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.college.message}
-                    </span>
-                  )}
-                </label>
-              </div>
               <div className="w-full">
                 <label htmlFor="selectSubject" className=" ">
                   Select Subject{" "}
@@ -318,6 +212,31 @@ export default function AdmissionForm() {
                   {errors.selectSubject?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
                       {errors.selectSubject.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+              <div className="w-full">
+                <label htmlFor="address" className=" ">
+                  Your Address{" "}
+                </label>
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
+                  placeholder="Enter your address"
+                  {...register("address", {
+                    required: {
+                      value: true,
+                      message: "enter your address",
+                    },
+                  })}
+                />
+                <label className="">
+                  {errors.address?.type === "required" && (
+                    <span className="text-red-500 text-sm pt-2 capitalize">
+                      {errors.address.message}
                     </span>
                   )}
                 </label>

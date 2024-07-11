@@ -2,20 +2,13 @@ import mongoose, { Schema } from "mongoose";
 
 const admissionSchema = new Schema(
   {
-    sscRoll: { type: Number, require: true },
-    hscRoll: { type: Number, require: true },
-    sscBoard: { type: String, require: true },
-    hscBoard: { type: String, require: true },
-    sscPassingYear: { type: Number, require: true },
-    hscPassingYear: { type: Number, require: true },
-    college: { type: String, require: true },
-    selectSubject: { type: String, require: true },
-    uid: { type: String, require: true , unique:true},
-    emailVerified: { type: Boolean, },
-    image: { type: String, require: true },
-    accessToken: { type: String, require: true, unique:true },
-    studentEmail: { type: String, require: true,unique:true },
     studentName: { type: String, require: true },
+    number: { type: Number, require: true },
+    subject: { type: String, require: true },
+    email: { type: String, require: true },
+    address: { type: String, require: true },
+    birthday: { type: String, require: true },
+    image: { type: String, require: true },
   },
   {
     timestamps: true,
