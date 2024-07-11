@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { FiUser } from "react-icons/fi";
+import Swal from "sweetalert2";
 import DarkMode from "../darkMode/darkMode";
 
 export default function Navbar() {
