@@ -2,6 +2,7 @@
 import LoginWithAll from "@/Components/authentication/LoginWithAll/LoginWithAll";
 import { auth } from "@/app/firebase.init";
 import Loading from "@/app/loading";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -79,6 +80,14 @@ export default function Login() {
             />
           </div>
         </form>
+        <div className="">
+        <Link
+          href="/authentication/create-account"
+          className="text-sm  text-blue-900"
+        >
+          create a new account...?
+        </Link>
+        </div>
         {/* login and sign up all */}
         <LoginWithAll />
       </div>

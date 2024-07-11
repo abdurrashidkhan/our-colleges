@@ -1,21 +1,24 @@
 "use client";
+import { auth } from "@/app/firebase.init";
+import Loading from "@/app/loading";
 import Link from "next/link";
-
 import { usePathname } from "next/navigation";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { FiUser } from "react-icons/fi";
 import DarkMode from "../darkMode/darkMode";
 
 export default function Navbar() {
   const pathname = usePathname();
-  // const [user, loading, error] = useAuthState(auth);
-  // console.log(user);
-  // const [signOut, outLoading, OutError] = useSignOut(auth);
-  // const userLogOut = async () => {
-  //   await signOut();
-  //   Swal.fire({
-  //     title: "Logout success",
-  //     icon: "success",
-  //   });
-  // };
+  const [user, loading, error] = useAuthState(auth);
+  console.log(user);
+  const [signOut, outLoading, OutError] = useSignOut(auth);
+  const userLogOut = async () => {
+    await signOut();
+    Swal.fire({
+      title: "Logout success",
+      icon: "success",
+    });
+  };
   // routing
   const routing = [
     { path: "/", name: "Home" },
@@ -26,22 +29,22 @@ export default function Navbar() {
     { path: "/contact", name: "Contact us" },
   ];
 
-  // if (error || OutError) {
-  //   return (
-  //     <div>
-  //       <p>Error: {error.message}</p>
-  //     </div>
-  //   );
-  // }
-  // if (loading || outLoading) {
-  //   return <Loading></Loading>;
-  // }
-  // if (error) {
-  //   console.log(error.message);
-  // }
-  // if (loading) {
-  //   return <Loading></Loading>;
-  // }
+  if (error || OutError) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading || outLoading) {
+    return <Loading></Loading>;
+  }
+  if (error) {
+    console.log(error.message);
+  }
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="navbar bg-[#fff] dark:bg-[#122033] border-b border-[#603bf65e] shadow-2xl fixed z-[9999] py-0">
       <div className="container mx-auto px-2">
@@ -152,7 +155,7 @@ export default function Navbar() {
                 role="button"
                 className="btn btn-ghost btn-circle avatar "
               >
-                {/* <div className="rounded-full mx-auto ">
+                <div className="rounded-full mx-auto ">
                   {user?.photoURL != null ? (
                     <Image
                       alt="user profile photo"
@@ -165,7 +168,7 @@ export default function Navbar() {
                       <FiUser />
                     </div>
                   )}
-                </div> */}
+                </div>
               </div>
               <ul
                 tabIndex={0}
@@ -190,7 +193,7 @@ export default function Navbar() {
                     Dashboard
                   </Link>
                 </li>
-                {/* <li>
+                <li>
                   {user ? (
                     <button
                       onClick={() => userLogOut()}
@@ -201,7 +204,7 @@ export default function Navbar() {
                   ) : (
                     <Link href={"/authentication/login"}>Login Here</Link>
                   )}
-                </li> */}
+                </li>
               </ul>
             </div>
           </div>

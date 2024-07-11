@@ -3,6 +3,7 @@ import LoginWithAll from "@/Components/authentication/LoginWithAll/LoginWithAll"
 import Error from "@/app/error";
 import { auth } from "@/app/firebase.init";
 import Loading from "@/app/loading";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import {
@@ -135,6 +136,14 @@ export default function SinUp() {
             />
           </div>
         </form>
+        <div className="">
+        <Link
+          href="/authentication/login"
+          className="text-sm  text-blue-900"
+        >
+          I have account.
+        </Link>
+        </div>
         {/* login and sign up all */}
         <LoginWithAll />
       </div>
