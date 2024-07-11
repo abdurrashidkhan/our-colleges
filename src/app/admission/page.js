@@ -12,16 +12,8 @@ export default function Admission() {
   const [user, loading, error] = useAuthState(auth);
   const [signOut, outLoading, OutError] = useSignOut(auth);
   const [isLoading, seIsLoading] = useState(false);
-  const checkingUsers = CheckingUser(); // call checking user fund or not
-  useEffect(() => {
-    CheckAdmin(user, signOut);
-  }, [user, signOut]);
-// // 
-
-
-useEffect(() => {
-  CheckAdmin(user, signOut);
-}, [user, signOut]);
+  const checkingUsers = CheckingUser(); // call checking user fund or no
+  
 if (loading || outLoading) {
   return <Loading></Loading>;
 }

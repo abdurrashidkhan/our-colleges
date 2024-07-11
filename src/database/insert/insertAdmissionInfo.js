@@ -1,12 +1,12 @@
 import Swal from "sweetalert2";
-export default async function projectInsert(project,seIsLoading,reset) {
-  console.log(project)
+export default async function insertAdmissionInfo(admissionInfo,seIsLoading,reset) {
+  console.log(admissionInfo)
   try {
     // C:\projects\digital-marketing-agency\src\app\api\merge-marketing\v1\users\insert-user\[email].js
-    const res = await fetch(`http://localhost:3000/api/project/`, {
+    const res = await fetch(`http://localhost:3000/api/admission/`, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(project),
+      body: JSON.stringify(admissionInfo),
     });
     // }
     if (!res.ok) {

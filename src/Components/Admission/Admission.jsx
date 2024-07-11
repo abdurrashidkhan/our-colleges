@@ -1,19 +1,14 @@
 "use client";
+import Loading from "@/app/loading";
+import insertAdmissionInfo from "@/database/insert/insertAdmissionInfo";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import CheckingUser from "../Admin/checkingUser";
 export default function AdmissionForm() {
   // const [user, loading, error] = useAuthState(auth);
   // const [signOut, outLoading, OutError] = useSignOut(auth);
-  // const checkingUsers = CheckingUser(); // call checking user fund or not
-  // useEffect(() => {
-  //   CheckAdmin(user, signOut);
-  // }, [user, signOut]);
-  //
-
-  // const [isLoading, seIsLoading] = useState(false);
-
-  // useEffect(() => {
-  //   CheckAdmin(user, signOut);
-  // }, [user, signOut]);
+  const checkingUsers = CheckingUser(); // call checking user fund or no
+  const [isLoading, seIsLoading] = useState(false);
 
   const {
     register,
@@ -24,57 +19,51 @@ export default function AdmissionForm() {
   const onSubmit = (data) => {
     console.log(data);
     // // loading start
-    // seIsLoading(true);
+    seIsLoading(true);
 
-    // // thimble
-    // const imgbbAPIKey = "0f140d3e8e7c284d126389c955a6ca33";
-    // const formData = new FormData();
+    // thimble
+    const imgbbAPIKey = "ce39a956ae9b7efbe82ad1c15c002276";
+    const formData = new FormData();
+    const url = `https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`;
+
+    // end thimble
+
+    const image = data.image[0];
+    formData.append("image", image);
     // const url = `https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`;
-
-    // // end thimble
-
-    // const image = data.image[0];
-    // formData.append("image", image);
-    // // const url = `https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`;
-    // fetch(url, {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     if (result.success) {
-    //       const img = result.data.url;
-    //       const project = {
-    //         sscRoll: data.sscRoll,
-    //         hscRoll: data.hscRoll,
-    //         sscBoard: data.sscBoard,
-    //         hscBoard: data.hscBoard,
-    //         sscPassingYear: data.sscPassingYear,
-    //         hscPassingYear: data.hscPassingYear,
-    //         college: data.college,
-    //         selectSubject: data.selectSubject,
-    //         date: new Date(),
-    //         image: img,
-    //         // date: new Date(),
-    //       };
-    //       const insertProjects = projectInsert(project, seIsLoading, reset);
-    //     }
-    //   });
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const img = result.data.url;
+          const admissionInfo = {
+            sscRoll: data.sscRoll,
+            hscRoll: data.hscRoll,
+            sscBoard: data.sscBoard,
+            hscBoard: data.hscBoard,
+            sscPassingYear: data.sscPassingYear,
+            hscPassingYear: data.hscPassingYear,
+            college: data.college,
+            selectSubject: data.selectSubject,
+            // date: new Date(),
+            image: img,
+            // date: new Date(),
+          };
+          const insertProjects = insertAdmissionInfo(
+            admissionInfo,
+            seIsLoading,
+            reset
+          );
+        }
+      });
   };
-  // if (loading || outLoading) {
-  //   return <Loading></Loading>;
-  // }
-  // if (error || OutError) {
-  //   console.log(error?.message);
-  // }
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
-  // //
-  // if (loading || outLoading) {
-  //   return <Loading></Loading>;
-  // }
-  // if (error || OutError) {
-  //   console.log(error?.message);
-  // }
   return (
     <div className="w-[98%] h-auto mb-5">
       <div
@@ -350,7 +339,7 @@ export default function AdmissionForm() {
               </label>
             </div>
           </div>
-          {/* {isLoading ? (
+          {isLoading ? (
             <button
               className="btn w-full rounded capitalize bg-blue-700 py-2 text-white hover:bg-blue-600 rounded-b border-none"
               disabled
@@ -362,7 +351,7 @@ export default function AdmissionForm() {
             <button className="uppercase bg-blue-700 w-full py-2 text-white hover:bg-blue-600 rounded-b">
               submit
             </button>
-          )} */}
+          )}
         </form>
       </div>
     </div>
