@@ -27,7 +27,7 @@ export default function Navbar() {
     // { path: "/events-sports", name: "Events & Sports" },
     { path: "/colleges", name: "Colleges" },
     { path: "/admission", name: "Admission" },
-    { path: "/my-College", name: "My College" },
+    { path: "/my-college", name: "My College" },
     { path: "/contact", name: "Contact us" },
   ];
 
