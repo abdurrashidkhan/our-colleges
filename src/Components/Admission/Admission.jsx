@@ -1,11 +1,13 @@
 "use client";
+import { auth } from "@/app/firebase.init";
 import Loading from "@/app/loading";
 import insertAdmissionInfo from "@/database/insert/insertAdmissionInfo";
 import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import CheckingUser from "../Admin/checkingUser";
 export default function AdmissionForm() {
-  // const [user, loading, error] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
   // const [signOut, outLoading, OutError] = useSignOut(auth);
   const checkingUsers = CheckingUser(); // call checking user fund or no
   const [isLoading, seIsLoading] = useState(false);
@@ -48,7 +50,12 @@ export default function AdmissionForm() {
             hscPassingYear: data.hscPassingYear,
             college: data.college,
             selectSubject: data.selectSubject,
-            // date: new Date(),
+            studentEmail: user?.email,
+            studentName: user?.displayName,
+            uid: user?.uid,
+            emailVerified: user?.emailVerified,
+            accessToken: user?.accessToken,
+            date: new Date(),
             image: img,
             // date: new Date(),
           };
@@ -57,13 +64,16 @@ export default function AdmissionForm() {
             seIsLoading,
             reset
           );
+          console.log(insertProjects);
         }
       });
   };
-  if (isLoading) {
+  if (isLoading || loading) {
     return <Loading></Loading>;
   }
-
+  if (error) {
+    console.log(error.message);
+  }
   return (
     <div className="w-[98%] h-auto mb-5">
       <div
