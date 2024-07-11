@@ -45,16 +45,16 @@ export default function AdmissionForm() {
     //     if (result.success) {
     //       const img = result.data.url;
     //       const project = {
-    //         title: data.projectsTitle,
-    //         projectDuration: data.projectDuration,
-    //         categories: data.catagories,
-    //         projectBeget: data.projectBeget,
-    //         projectDiscount: data.projectDiscount,
-    //         clientLocation: data.clientLocation,
-    //         projectBenefit: data.projectBenefit,
+    //         sscRoll: data.sscRoll,
+    //         hscRoll: data.hscRoll,
+    //         sscBoard: data.sscBoard,
+    //         hscBoard: data.hscBoard,
+    //         sscPassingYear: data.sscPassingYear,
+    //         hscPassingYear: data.hscPassingYear,
+    //         college: data.college,
+    //         selectSubject: data.selectSubject,
     //         date: new Date(),
     //         image: img,
-    //         description: data.projectDescription,
     //         // date: new Date(),
     //       };
     //       const insertProjects = projectInsert(project, seIsLoading, reset);
@@ -79,61 +79,58 @@ export default function AdmissionForm() {
     <div className="w-[98%] h-auto mb-5">
       <div
         id="project-content"
-        className="rounded  bg-[#fff] text-[#000] dark:bg-[#122033] dark:text-[#e7e6eb] shadow-2xl  mb-[4rem]"
+        className="rounded  bg-[#fff] text-[#000] dark:bg-[#122033] dark:text-[#e7e6eb] shadow-2xl mt-5  mb-[4rem]"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="text-center md:text-start">
-            <h1 className="text-2xl font-serif pt-4  pl-5">Add Project</h1>
-          </div>
           <div className="p-4 text-start">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center  gap-5">
               <div className="w-full">
-                <label htmlFor="projectsTitle" className=" ">
-                  Project Title{" "}
+                <label htmlFor="sscRoll" className=" ">
+                  SSC Roll{" "}
                 </label>
                 <input
-                  id="projectsTitle"
-                  name="projectsTitle"
-                  type="text"
+                  id="sscRoll"
+                  name="sscRoll"
+                  type="number"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Type Here project Title "
-                  {...register("projectsTitle", {
+                  placeholder="Type Here SSC Roll "
+                  {...register("sscRoll", {
                     required: {
                       value: true,
                       maxLength: 60,
-                      message: "project title is short",
+                      message: "enter your ssc roll ",
                     },
                   })}
                 />
                 <label className="">
-                  {errors.projectsTitle?.type === "required" && (
+                  {errors.sscRoll?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.projectsTitle.message}
+                      {errors.sscRoll.message}
                     </span>
                   )}
                 </label>
               </div>
               <div className="w-full">
-                <label htmlFor="projectDuration" className=" ">
-                  Project Duration{" "}
+                <label htmlFor="hscRoll" className=" ">
+                  HSC Roll{" "}
                 </label>
                 <input
-                  id="projectDuration"
-                  name="projectDuration"
+                  id="hscRoll"
+                  name="hscRoll"
                   type="number"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Type Here Project Duration "
-                  {...register("projectDuration", {
+                  placeholder="Type Here HSC Roll"
+                  {...register("hscRoll", {
                     required: {
                       value: true,
-                      message: "input box is clear please type now",
+                      message: "enter your hsc roll",
                     },
                   })}
                 />
                 <label className="">
-                  {errors.projectDuration?.type === "required" && (
+                  {errors.hscRoll?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.projectDuration.message}
+                      {errors.hscRoll.message}
                     </span>
                   )}
                 </label>
@@ -142,51 +139,61 @@ export default function AdmissionForm() {
 
             <div className="grid grid-cols-1 md:grid-cols-2  items-center gap-5 pt-3">
               <div className="w-full">
-                <label htmlFor="projectBeget" className=" ">
-                  Project Beget{" "}
+                <label htmlFor="sscBoard" className=" ">
+                  Board{" "}
                 </label>
-                <input
-                  id="projectBeget"
-                  name="projectBeget"
-                  type="number"
+                <select
+                  id="sscBoard"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Project Beget"
-                  {...register("projectBeget", {
+                  {...register("sscBoard", {
                     required: {
                       value: true,
-                      message: "please enter your project price",
+                      message: "Select Board",
                     },
                   })}
-                />
+                >
+                  <option selected disabled>
+                    Select Board
+                  </option>
+                  <option value="dhaka">Dhaka</option>
+                  <option value="comilla">Comilla</option>
+                  <option value=" chattogram ">Chattogram</option>
+                  <option value="rajshahi ">Rajshahi </option>
+                </select>
                 <label className="">
-                  {errors.projectBeget?.type === "required" && (
+                  {errors.sscBoard?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.projectBeget.message}
+                      {errors.sscBoard.message}
                     </span>
                   )}
                 </label>
               </div>
               <div className="w-full">
-                <label htmlFor="projectDiscount" className=" ">
-                  Project Discount{" "}
+                <label htmlFor="hscBoard" className=" ">
+                  Board{" "}
                 </label>
-                <input
-                  id="projectDiscount"
-                  name="projectDiscount"
-                  type="number"
+                <select
+                  id="hscBoard"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="project Discount"
-                  {...register("projectDiscount", {
+                  {...register("hscBoard", {
                     required: {
                       value: true,
-                      message: "please enter project discount",
+                      message: "Select hscBoard",
                     },
                   })}
-                />
+                >
+                  <option selected disabled>
+                    Select Board
+                  </option>
+                  <option value="dhaka">Dhaka</option>
+                  <option value="comilla">Comilla</option>
+                  <option value=" chattogram ">Chattogram</option>
+                  <option value="rajshahi ">Rajshahi </option>
+                </select>
                 <label className="">
-                  {errors.projectDiscount?.type === "required" && (
+                  {errors.hscBoard?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.projectDiscount.message}
+                      {errors.hscBoard.message}
                     </span>
                   )}
                 </label>
@@ -195,92 +202,142 @@ export default function AdmissionForm() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-5 pt-3">
               <div className="w-full">
-                <label htmlFor="catagories" className=" ">
-                  Project Catagories
+                <label htmlFor="sscPassingYear" className=" ">
+                  Passing Year{" "}
                 </label>
-                <select
-                  id="catagories"
+                <input
+                  id="sscPassingYear"
+                  name="sscPassingYear"
+                  type="number"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  {...register("catagories", {
+                  placeholder="Type Here Passing Year "
+                  {...register("sscPassingYear", {
                     required: {
                       value: true,
-                      message: "Select Catagories",
+                      message: "Enter Your Passing Year",
                     },
                   })}
-                >
-                  <option selected disabled>
-                    Select Catagories
-                  </option>
-                  <option value="seo">Search Engine Optimization (SEO)</option>
-                  <option value="content-marketing">Content Marketing</option>
-                  <option value="social-Media-marketing">
-                    Social Media Marketing
-                  </option>
-                  <option value="email-marketing">Email Marketing</option>
-                  <option value="affiliate-marketing">
-                    Affiliate Marketing
-                  </option>
-                  <option value="influencer-marketing">
-                    Influencer Marketing
-                  </option>
-                  <option value="analytics-data-analysis">
-                    Analytics and Data Analysis
-                  </option>
-                  <option value="mobile-marketing">Mobile Marketing</option>
-                  <option value="video-marketing">Video Marketing</option>
-                  <option value="ecommerce-marketing">
-                    E-commerce Marketing
-                  </option>
-                  <option value="registry-gifting">Registry and Gifting</option>
-                </select>
+                />
                 <label className="">
-                  {errors.catagories?.type === "required" && (
+                  {errors.sscPassingYear?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.catagories.message}
+                      {errors.sscPassingYear.message}
                     </span>
                   )}
                 </label>
               </div>
               <div className="w-full">
-                <label htmlFor="clientLocation" className=" ">
-                  Client Location
+                <label htmlFor="hscPassingYear" className=" ">
+                  Passing Year{" "}
                 </label>
                 <input
-                  id="clientLocation"
-                  name="clientLocation"
-                  type="text"
+                  id="hscPassingYear"
+                  name="hscPassingYear"
+                  type="number"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="Client Location"
-                  {...register("clientLocation", {
+                  placeholder="Type Here Passing Year "
+                  {...register("hscPassingYear", {
                     required: {
                       value: true,
-                      message: "input box is clear please type now",
+                      message: "Enter Your Passing Year",
                     },
                   })}
                 />
                 <label className="">
-                  {errors.clientLocation?.type === "required" && (
+                  {errors.hscPassingYear?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.clientLocation.message}
+                      {errors.hscPassingYear.message}
                     </span>
                   )}
                 </label>
               </div>
             </div>
-            <div className="pt-3">
+            <h2 className="py-4 font-semibold">Step:02</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-5 pt-3">
+              <div className="w-full">
+                <label htmlFor="college" className=" ">
+                  Select College{" "}
+                </label>
+                <select
+                  id="college"
+                  name="college"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
+                  {...register("college", {
+                    required: {
+                      value: true,
+                      message: "Select College",
+                    },
+                  })}
+                >
+                  <option selected disabled>
+                    Select College
+                  </option>
+                  <option value="dhaka-university">Dhaka University</option>
+                  <option value="jahangirnagar-university ">
+                    Jahangirnagar University
+                  </option>
+                  <option value="khulna-university ">Khulna University </option>
+                  <option value="rajshahi-university ">
+                    University of Rajshahi
+                  </option>
+                </select>
+                <label className="">
+                  {errors.college?.type === "required" && (
+                    <span className="text-red-500 text-sm pt-2 capitalize">
+                      {errors.college.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+              <div className="w-full">
+                <label htmlFor="selectSubject" className=" ">
+                  Select Subject{" "}
+                </label>
+                <select
+                  id="selectSubject"
+                  name="selectSubject"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
+                  {...register("selectSubject", {
+                    required: {
+                      value: true,
+                      message: "Select select",
+                    },
+                  })}
+                >
+                  <option selected disabled>
+                    Select Subject
+                  </option>
+                  <option value="economics">Economics</option>
+                  <option value="political-science">Political Science </option>
+                  <option value="geography-environment">
+                    Geography Environment
+                  </option>
+                  <option value="bangla">Bangla</option>
+                  <option value="sociology">Sociology</option>
+                </select>
+                <label className="">
+                  {errors.selectSubject?.type === "required" && (
+                    <span className="text-red-500 text-sm pt-2 capitalize">
+                      {errors.selectSubject.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+            </div>
+            <div className="pt-6">
               <label htmlFor="image" className=" ">
-                Project Photo
+                Student Photos
               </label>
               <input
                 id="image"
                 name="image"
                 type="file"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                placeholder="Type Here project photos "
+                placeholder="Drop your photos "
                 {...register("image", {
                   required: {
                     value: true,
-                    message: "input box is clear please type now",
+                    message: "input box is clear please Drop your photos",
                   },
                 })}
               />
@@ -288,60 +345,6 @@ export default function AdmissionForm() {
                 {errors.image?.type === "required" && (
                   <span className="text-red-500 text-sm pt-2 capitalize">
                     {errors.image.message}
-                  </span>
-                )}
-              </label>
-            </div>
-            <div className="pt-3">
-              <label htmlFor="projectBenefit" className=" ">
-                Project Benefit{" "}
-              </label>
-              <textarea
-                cols="10"
-                rows="5"
-                id="projectBenefit"
-                name="projectBenefit"
-                type="text"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                placeholder="Type Here project Benefit "
-                {...register("projectBenefit", {
-                  required: {
-                    value: true,
-                    message: "input box is clear please type now",
-                  },
-                })}
-              />
-              <label className="">
-                {errors.projectBenefit?.type === "required" && (
-                  <span className="text-red-500 text-sm pt-2 capitalize">
-                    {errors.projectBenefit.message}
-                  </span>
-                )}
-              </label>
-            </div>
-            <div className="pt-3">
-              <label htmlFor="projectDescription" className=" ">
-                Project Description
-              </label>
-              <textarea
-                cols="10"
-                rows="5"
-                id="projectDescription"
-                name="projectDescription"
-                type="text"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                placeholder="Type Here project Description "
-                {...register("projectDescription", {
-                  required: {
-                    value: true,
-                    message: "input box is clear please type now",
-                  },
-                })}
-              />
-              <label className="">
-                {errors.projectDescription?.type === "required" && (
-                  <span className="text-red-500 text-sm pt-2 capitalize">
-                    {errors.projectDescription.message}
                   </span>
                 )}
               </label>
