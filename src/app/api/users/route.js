@@ -14,7 +14,7 @@ export async function PUT(request) {
     emailVerified,
     photoURL,
     accessToken,
-    "role":"normal"
+    "role":"student"
   };
   await connectMongodb();
   await users.findOneAndUpdate(updateDoc, filter, options);

@@ -1,6 +1,18 @@
 import AdmissionForm from "@/Components/Admission/Admission";
 import "./style.css";
+
 export default function Admission() {
+  // const [isLoading, seIsLoading] = useState(false);
+//   const checkingUsers = CheckingUser(); // call checking user fund or not
+//   useEffect(() => {
+//     CheckAdmin(user, signOut);
+//   }, [user, signOut]);
+// // 
+
+
+// useEffect(() => {
+//   CheckAdmin(user, signOut);
+// }, [user, signOut]);
   return (
     <section className="h-auto dark:bg-[#122033] dark:text-[#dddddd] bg-[#eeeeee] text-[#000] ease-in-out duration-1000">
       <div className="container mx-auto py-5">

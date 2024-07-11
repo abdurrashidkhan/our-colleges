@@ -1,6 +1,7 @@
 "use client";
 import { auth } from "@/app/firebase.init";
 import Loading from "@/app/loading";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
