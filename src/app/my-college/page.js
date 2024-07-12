@@ -1,4 +1,5 @@
 import OurClientReview from "@/Components/CollegeImgeSllider/CollegeImgeSllider";
+import SubmitReview from "@/Components/Review/SubmitReview";
 
 export default function MyCollege() {
   return (
@@ -11,7 +12,7 @@ export default function MyCollege() {
           <div className="">
             <div className="px-4">
               <div className="">
-                <p className="text-[#20b820] font-semibold">Our College__</p>
+                <p className="text-[#20b820] font-semibold">My College__</p>
                 <h1 className="capitalize text-xl sm:text-lg md:text-xl lg:text-2xl font-semibold py-3 dark:text-[#fff] text-[#444444] hvf-dom-checked ">
                   Dhaka university about us.
                 </h1>
@@ -95,8 +96,8 @@ export default function MyCollege() {
           </div>
         </div>
         {/* description */}
-        <div className="py-5">
-          <p>
+        <div className="py-8">
+          <p className="tracking-[1px] leading-[30px]">
             On 31 January a delegation led by Nawab Sir Salimullah,Nawab Syed
             Nawab Ali Chowdhury and Sher e-Bangla A.K. Fazlul Hug met Viceroy
             Lord Hardinge on his visit to Dhaka (then Dacca) and raised the
@@ -111,6 +112,62 @@ export default function MyCollege() {
             scheme. The Committee, known as Nathan committee, submitted the
             scheme in the same year.
           </p>
+        </div>
+        {/* review and qussen */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center gap-5 py-10">
+        <div className="">
+          {/* anther section */}
+          <SubmitReview />
+        </div>
+          <div className="">
+            <div className="join join-vertical w-full">
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" defaultChecked />
+                <div className="collapse-title text-lg font-medium">
+                What are the eligibility criteria for admission?
+                </div>
+                <div className="collapse-content">
+                  <p>The eligibility criteria vary depending on the faculty and program. Generally, candidates must have a certain GPA in both SSC and HSC exams or equivalent qualifications.</p>
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title text-lg font-medium">
+                How can I apply for admission?
+                </div>
+                <div className="collapse-content">
+                  <p>Applications are typically submitted online through the official Dhaka University admission portal. Detailed instructions are provided on the university’s website during the admission period.</p>
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title text-lg font-medium">
+                What documents are required for the application?
+                </div>
+                <div className="collapse-content">
+                  <p>Commonly required documents include SSC and HSC certificates and transcripts, a recent passport-sized photograph, and the application fee payment receipt.</p>
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title text-lg font-medium">
+                What is the admission test format?
+                </div>
+                <div className="collapse-content">
+                  <p>The format varies by faculty, but it generally includes multiple-choice questions (MCQs) covering subjects relevant to the chosen program. Some faculties may also have written exams and practical tests.</p>
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title text-lg font-medium">
+                When are the admission tests held?
+                </div>
+                <div className="collapse-content">
+                  <p>Admission tests are usually held in October-November for the academic year starting in the following year. The specific dates are announced on the university’s website.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
