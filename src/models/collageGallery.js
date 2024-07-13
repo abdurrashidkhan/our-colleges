@@ -13,5 +13,5 @@ const collegeGallerySchema = new Schema(
     timestamps: true,
   }
 );
-const collegeGallery = mongoose.models.collegeGallery || mongoose.model("college-gallery", collegeGallerySchema);
+const collegeGallery = mongoose.models.collegeGallery || mongoose.model("collegeGallery", collegeGallerySchema);
 export default collegeGallery;

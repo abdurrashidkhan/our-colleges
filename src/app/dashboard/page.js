@@ -1,5 +1,6 @@
 // welcome to dashboard
 "use client"
+import CheckAdmin from "@/Components/Admin/CheckAdmin";
 import CheckingUser from "@/Components/Admin/checkingUser";
 import { auth } from "@/app/firebase.init";
 import Loading from "@/app/loading";
@@ -13,7 +14,7 @@ export default function Dashboard() {
   if (loading || outLoading) {
     return <Loading></Loading>;
   }else{
-    // isAdmin = CheckAdmin()
+    isAdmin = CheckAdmin()
   }
   if (error || OutError) {
     console.log(error?.message);

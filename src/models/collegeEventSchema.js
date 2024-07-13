@@ -13,5 +13,5 @@ const collegeEventSchema = new Schema(
     timestamps: true,
   }
 );
-const collegeEvent = mongoose.models.collegeEvent || mongoose.model("college-event", collegeEventSchema);
+const collegeEvent = mongoose.models.collegeEvent || mongoose.model("collegeEvent", collegeEventSchema);
 export default collegeEvent;
