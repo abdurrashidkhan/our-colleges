@@ -12,6 +12,7 @@ export default function Home() {
       <CollegeGallery />
       <Researched/>
       <ReviewPage/>
+      {/* <Footer></Footer> */}
     </>
   );
 }
