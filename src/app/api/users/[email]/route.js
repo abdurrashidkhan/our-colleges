@@ -7,7 +7,7 @@ export async function GET(request, { params }) {
   if (req.method === 'GET') {
     const { email } = params;
     await connectMongodb();
-    const user = await users.findOne({ email: email }).exec();
+    const user = await users.findOne({ email: email });
     const isAdmin = await user?.role === "admin";
     return NextResponse.json({ isAdmin});
   } else {
