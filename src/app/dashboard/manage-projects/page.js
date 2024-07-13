@@ -4,7 +4,7 @@ import CheckingUser from "@/Components/Admin/checkingUser";
 import { auth } from "@/app/firebase.init";
 import Loading from "@/app/loading";
 import uesDeleteProject from "@/database/delete/uesDeleteProject";
-import uesAllProjects from "@/database/find/allProjects/useAllprojects";
+import uesAllProjects from "@/database/find/allEvents/useAllprojects";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
