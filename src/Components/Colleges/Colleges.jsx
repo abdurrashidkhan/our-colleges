@@ -8,7 +8,7 @@ export default function Colleges() {
         <div className="">
           <div className="text-center">
             <h2 className="text-2xl font-semibold text-[#101C2C] dark:text-[#d8d8d8]">
-              All Colleges_
+              Colleges_
             </h2>
             <p className="tracking-[.5px] text-sm dark:text-[#dbdbdb] text-[#101c2cec] font-medium py-5">
               Oakridge College excels in liberal arts, Maplewood University
