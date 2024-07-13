@@ -22,9 +22,7 @@ const Layout = ({ children }) => {
     { path: "/dashboard/add-college-event", name: "Add College Event" },
     { path: "/dashboard/add-collage-gallery", name: "Add College Gallery" },
     { path: "/dashboard/add-researched", name: "Add Researched" },
-    // { path: "/dashboard/teammate", name: "Teammate " },
-    { path: "/dashboard/manage-services", name: "Manage Services" },
-    { path: "/dashboard/manage-projects", name: "Manage Projects" },
+    // { path: "/dashboard/teammate", name: "Teammate " },s
     { path: "/dashboard/manage-users", name: "Manage Users" },
   ];
 
