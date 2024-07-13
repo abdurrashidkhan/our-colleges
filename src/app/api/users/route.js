@@ -27,7 +27,7 @@ export async function PUT(request) {
 
 
 // one user find
-export async function GET(request, { params }) {
+export async function GET(request) {
   const { email } = params;
   // console.log(email)
   await connectMongodb();
