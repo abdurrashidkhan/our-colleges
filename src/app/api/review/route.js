@@ -19,3 +19,10 @@ export async function POST(request) {
     { status: 201 }
   );
 }
+export async function GET(request) {
+  await connectMongodb();
+  const reviewInfo = await review.find({}).catch();
+  return NextResponse.json(
+    { reviewInfo }
+  );
+}
