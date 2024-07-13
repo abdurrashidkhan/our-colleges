@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
+mongoose.Promise = global.Promise;
 const reviewSchema = new Schema(
   {
     reviewStar: { type: Number, require: true },

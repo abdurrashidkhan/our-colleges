@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
+mongoose.Promise = global.Promise;
 const contactSchema = new Schema(
   {
     description: { type: String, require: true },

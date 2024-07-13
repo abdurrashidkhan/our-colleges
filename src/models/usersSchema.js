@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
+mongoose.Promise = global.Promise;
 const usersSchema = new Schema(
   {
     displayName: { type: String, require: true },

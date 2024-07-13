@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 mongoose.Promise = global.Promise;
-const collegeEventSchema = new Schema(
+const collegeGallerySchema = new Schema(
   {
     title: { type: String, require: true },
     description: { type: String, require: true },
@@ -13,5 +13,5 @@ const collegeEventSchema = new Schema(
     timestamps: true,
   }
 );
-const collegeEvent = mongoose.models.collegeEvent || mongoose.model("college-event", collegeEventSchema);
-export default collegeEvent;
+const collegeGallery = mongoose.models.collegeGallery || mongoose.model("college-gallery", collegeGallerySchema);
+export default collegeGallery;

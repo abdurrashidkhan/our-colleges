@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
+mongoose.Promise = global.Promise;
 const admissionSchema = new Schema(
   {
     studentName: { type: String, require: true },

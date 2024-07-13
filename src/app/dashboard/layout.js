@@ -20,7 +20,8 @@ const Layout = ({ children }) => {
   const dashboardRouting = [
     { path: "/dashboard", name: "Overview" },
     { path: "/dashboard/add-college-event", name: "Add College Event" },
-    { path: "/dashboard/add-project", name: "Add Project" },
+    { path: "/dashboard/add-collage-gallery", name: "Add College Gallery" },
+    { path: "/dashboard/add-researched", name: "Add Researched" },
     // { path: "/dashboard/teammate", name: "Teammate " },
     { path: "/dashboard/manage-services", name: "Manage Services" },
     { path: "/dashboard/manage-projects", name: "Manage Projects" },

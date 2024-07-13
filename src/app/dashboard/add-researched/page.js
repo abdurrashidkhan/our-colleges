@@ -1,75 +1,80 @@
-"use client"
+"use client";
 import CheckAdmin from "@/Components/Admin/CheckAdmin";
 import CheckingUser from "@/Components/Admin/checkingUser";
 import { auth } from "@/app/firebase.init";
 import Loading from "@/app/loading";
-import insertCollegeEvent from "@/database/insert/insertCollegeEvent";
+import insertResearch from "@/database/insert/insertResearch";
 import { useEffect, useState } from "react";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-export default function AddProject() {
+export default function AddResearched() {
   const [user, loading, error] = useAuthState(auth);
   const [signOut, outLoading, OutError] = useSignOut(auth);
   const checkingUsers = CheckingUser(); // call checking user fund or not
   useEffect(() => {
     CheckAdmin(user, signOut);
   }, [user, signOut]);
-// 
+  //
 
-const [isLoading, seIsLoading] = useState(false);
+  const [isLoading, seIsLoading] = useState(false);
 
-useEffect(() => {
-  CheckAdmin(user, signOut);
-}, [user, signOut]);
+  useEffect(() => {
+    CheckAdmin(user, signOut);
+  }, [user, signOut]);
 
-const {
-  register,
-  handleSubmit,
-  reset,
-  formState: { errors },
-} = useForm();
-const onSubmit = (data) => {
-  // loading start
-  seIsLoading(true);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    // loading start
+    seIsLoading(true);
 
-  // thimble
-  const imgbbAPIKey = "0f140d3e8e7c284d126389c955a6ca33";
-  const formData = new FormData();
-  const url = `https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`;
+    // thimble
+    const imgbbAPIKey = "0f140d3e8e7c284d126389c955a6ca33";
+    const formData = new FormData();
+    const url = `https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`;
 
-  // end thimble
+    // end thimble
 
-  const image = data.image[0];
-  formData.append("image", image);
-  // const url = `https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`;
-  fetch(url, {
-    method: "POST",
-    body: formData,
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      if (result.success) {
-        const img = result.data.url;
-        const collegeEventInfo = {
-          title: data.title,
-          description: data.description,
-          categories: data.catagories,
-          date: data.date,
-          image: img,
-          // date: new Date(),
-        };
-        const insertProjects = insertCollegeEvent(collegeEventInfo, seIsLoading, reset);
-      }
-    });
-};
-if (loading || outLoading) {
-  return <Loading></Loading>;
-}
-if (error || OutError) {
-  console.log(error?.message);
-}
+    const image = data.image[0];
+    formData.append("image", image);
+    // const url = `https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const img = result.data.url;
+          const researchInfo = {
+            title: data.title,
+            researcher:data.researcher,
+            description: data.description,
+            catagories: data.catagories,
+            date: data.date,
+            image: img,
+            // date: new Date(),
+          };
+          const research = insertResearch(
+            researchInfo,
+            seIsLoading,
+            reset
+          );
+        }
+      });
+  };
+  if (loading || outLoading) {
+    return <Loading></Loading>;
+  }
+  if (error || OutError) {
+    console.log(error?.message);
+  }
 
-// 
+  //
   if (loading || outLoading) {
     return <Loading></Loading>;
   }
@@ -84,11 +89,12 @@ if (error || OutError) {
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="text-center md:text-start">
-            <h1 className="text-2xl font-serif pt-4  pl-5">Add College Event</h1>
+            <h1 className="text-2xl font-serif pt-4  pl-5">
+            Add Research
+            </h1>
           </div>
           <div className="p-4 text-start">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center  gap-5">
-              
               <div className="w-full">
                 <label htmlFor="title" className=" ">
                   Title{" "}
@@ -144,62 +150,47 @@ if (error || OutError) {
 
             <div className="grid grid-cols-1 md:grid-cols-2  items-center gap-5 pt-3">
               <div className="w-full">
-                <label htmlFor="location" className=" ">
-                Location{" "}
+                <label htmlFor="researcher" className=" ">
+                Researcher{" "}
                 </label>
                 <input
-                  id="location"
-                  name="location"
+                  id="researcher"
+                  name="researcher"
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder="event location"
-                  {...register("location", {
+                  placeholder=" researcher name" 
+                  {...register("researcher", {
                     required: {
                       value: true,
-                      message: "please enter event location",
+                      message: "please enter researcher name",
                     },
                   })}
                 />
                 <label className="">
-                  {errors.location?.type === "required" && (
+                  {errors.researcher?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.location.message}
+                      {errors.researcher.message}
                     </span>
                   )}
                 </label>
               </div>
               <div className="w-full">
                 <label htmlFor="catagories" className=" ">
-                  Catagories
+                Catagories{" "}
                 </label>
-                <select
-                name="catagories"
+                <input
                   id="catagories"
+                  name="catagories"
+                  type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
+                  placeholder=" catagories name" 
                   {...register("catagories", {
                     required: {
                       value: true,
-                      message: "Select Catagories",
+                      message: "please enter catagories name",
                     },
                   })}
-                >
-                  <option selected disabled>
-                    Select Event Catagories
-                  </option>
-                  <option value="graduation ">Graduation </option>
-                  <option value="sport">Sport</option>
-                  <option value="academic-events">Academic Events</option>
-                  <option value="departmental-anniversaries">Departmental Anniversaries</option>
-                  <option value="affiliate-marketing">
-                    Affiliate Marketing
-                  </option>
-                  <option value="workshops">
-                  Workshops
-                  </option>
-                  <option value="conferences">
-                  Conferences
-                  </option>
-                </select>
+                />
                 <label className="">
                   {errors.catagories?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
@@ -212,7 +203,7 @@ if (error || OutError) {
 
             <div className="pt-3">
               <label htmlFor="image" className=" ">
-                Project Photo
+              Research Photo
               </label>
               <input
                 id="image"
@@ -262,7 +253,6 @@ if (error || OutError) {
                 )}
               </label>
             </div>
-            
           </div>
           {isLoading ? (
             <button
@@ -280,5 +270,5 @@ if (error || OutError) {
         </form>
       </div>
     </div>
-  )
+  );
 }

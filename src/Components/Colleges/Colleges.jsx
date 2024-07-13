@@ -1,10 +1,8 @@
 "use client";
 import Loading from "@/app/loading";
 import uesAllEvents from "@/database/find/allEvents/allEvents";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import DhakaUn from "../../assets/images/Banner_img/banner.jpg";
 export default function Colleges() {
   const [isLoading, setLoading] = useState(false);
   const [allEvents, setAllEvents] = useState([]);
@@ -18,9 +16,8 @@ export default function Colleges() {
   useEffect(() => {
     allEventsInfo();
   }, []);
-  console.log(allEvents);
   if (isLoading) {
-    <Loading></Loading>;
+    return <Loading></Loading>;
   }
   return (
     <section className="">
@@ -42,21 +39,19 @@ export default function Colleges() {
           <div className="">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-center justify-center">
               {/*  */}
-              {allEvents.map((e) => (
+              {allEvents?.map((e) => (
                 <div key={e?._id}>
                   <div className="bg-[#fff] dark:bg-[#152338] shadow-2xl rounded">
                     <div className="">
-                      <Image
+                      <img
                         className="w-[100%] h-[200px] rounded-t"
-                        src={DhakaUn}
+                        src={e?.image}
                         alt="loading"
                       />
                     </div>
                     <div className="px-1">
                       <h2 className="pt-5 font-semibold ">{e?.title}</h2>
-                      <h2 className="py-2 font-medium ">
-                        Foundation : {e?.date}
-                      </h2>
+                      <h2 className="py-2 font-medium ">{e?.date}</h2>
                       {/* <p>Admission Dates : 1 jan to 2 feb </p> */}
                       <p className="pb-3">
                         {`${e?.description?.slice(0, 100)}....`}
