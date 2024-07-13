@@ -26,13 +26,3 @@ export async function PUT(request) {
 
 
 
-// one user find
-export async function GET(request) {
-  const { email } = params;
-  // console.log(email)
-  await connectMongodb();
-  const allUsers = await users.find();
-  console.log(allUsers)
-  // const user = await users.findOne({ email:email });
-  return NextResponse.json({ allUsers });
-}
