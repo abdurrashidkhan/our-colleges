@@ -1,4 +1,5 @@
 "use client";
+import CheckingUser from "@/Components/Admin/checkingUser";
 import userInfo from "@/database/find/userFind/userFind";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,10 +10,11 @@ import { auth } from "../firebase.init";
 import Loading from "../loading";
 
 export default function Profile() {
+
   const [user, loading, error] = useAuthState(auth);
   const [isLoading, setLoading] = useState(false);
   const [userFind, setUser] = useState([]);
-
+const checkingUsers = CheckingUser();
   const userFindInfo = async (email) => {
     setLoading(true);
     const { userData } = await userInfo(email);
@@ -34,14 +36,14 @@ export default function Profile() {
   }
   return (
     <section className="">
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-2 py-10">
         <div className="">
           <Image
           
           quality={100}
             width={100}
             height={100}
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw5fHxjb3ZlcnxlbnwwfDB8fHwxNzEwNzQxNzY0fDA&ixlib=rb-4.0.3&q=80&w=1080"
+            src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="User Cover"
             className="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[14rem] xs:h-[11rem]"
           />
