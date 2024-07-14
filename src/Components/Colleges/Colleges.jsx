@@ -45,7 +45,6 @@ export default function Colleges() {
                   <div className="bg-[#fff] dark:bg-[#152338] shadow-2xl rounded">
                     <div className="">
                       <Image
-                        placeholder="blur"
                         quality={100}
                         width={100}
                         height={100}

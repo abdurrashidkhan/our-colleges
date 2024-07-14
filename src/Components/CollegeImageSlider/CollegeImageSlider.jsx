@@ -86,7 +86,7 @@ export default function CollegeImageCard() {
                   <Image
                     className="mx-auto rounded-full  shadow-2xl"
                     loading="lazy"
-                    // placeholder="blur"
+                    //
                     src={r.image}
                     width={"80"}
                     height={"auto"}

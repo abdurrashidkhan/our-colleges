@@ -37,7 +37,7 @@ export default async function LoginWithFb() {
       <Image
         className="mx-auto w-[30px] h-auto"
         loading="lazy"
-        // placeholder="blur"
+        //
         src={fbLogo}
         width={"100%"}
         height={"auto"}

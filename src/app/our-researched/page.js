@@ -47,7 +47,7 @@ export default function Researched() {
             >
               <div className="w-full h-auto">
                 <Image
-                placeholder="blur"
+                // 
                   width={100}
                   height={100}
                   quality={100}

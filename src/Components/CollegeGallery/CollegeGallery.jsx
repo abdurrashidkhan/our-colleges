@@ -43,7 +43,6 @@ export default function CollegeGallery() {
             <div key={g?._id}>
               <Link href={`/college-event/${g?._id}`}>
                 <Image
-                  placeholder="blur"
                   quality={100}
                   width={100}
                   height={100}

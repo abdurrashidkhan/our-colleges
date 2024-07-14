@@ -74,7 +74,7 @@ export default function OurClientReview() {
                 <Image
                   className="mx-auto rounded  shadow-2xl"
                   loading="lazy"
-                  // placeholder="blur"
+                  //
                   src={r.image}
                   width={"100%"}
                   height={"auto"}

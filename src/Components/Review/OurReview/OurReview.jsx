@@ -79,7 +79,6 @@ export default function OurReview() {
                   <Image
                     loading="lazy"
                     quality={100}
-                    placeholder="blur"
                     src={r.image}
                     width={80}
                     height={80}

@@ -41,7 +41,7 @@ export default async function LoginWithGoogle() {
         <Image
           className="mx-auto w-[30px] h-auto"
           loading="lazy"
-          // placeholder="blur"
+          //
           src={googleLogo}
           width={"100%"}
           height={"auto"}

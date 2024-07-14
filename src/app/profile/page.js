@@ -37,7 +37,7 @@ export default function Profile() {
       <div className="container mx-auto px-2">
         <div className="">
           <Image
-          placeholder="blur"
+          
           quality={100}
             width={100}
             height={100}
