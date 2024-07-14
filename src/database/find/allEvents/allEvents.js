@@ -1,6 +1,6 @@
 export default async function uesAllEvents() {
   // console.log(email)
-  const res = await fetch(`http://localhost:3000/api/college-events/`, {
+  const res = await fetch(`/api/college-events/`, {
     cache: 'no-store'
   });
   return res.json();

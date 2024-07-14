@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 export default async function serviceInsert(service,seIsLoading,reset) {
   try {
     // C:\projects\digital-marketing-agency\src\app\api\merge-marketing\v1\users\insert-user\[email].js
-    const res = await fetch(`http://localhost:3000/api/service/`, {
+    const res = await fetch(`/api/service/`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(service),

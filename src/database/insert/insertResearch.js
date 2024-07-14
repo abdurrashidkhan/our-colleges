@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 export default async function insertResearch(research,seIsLoading,reset) {
   try {
-    const res = await fetch(`http://localhost:3000/api/research/`, {
+    const res = await fetch(`/api/research/`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(research),

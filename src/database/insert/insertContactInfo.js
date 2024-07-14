@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 export default async function insertContactInfo(contactInfo,seIsLoading,reset) {
   try {
-    const res = await fetch(`http://localhost:3000/api/contact/`, {
+    const res = await fetch(`/api/contact/`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(contactInfo),

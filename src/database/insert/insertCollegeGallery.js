@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 export default async function insertCollegeGallery(collegeGalley,seIsLoading,reset) {
   try {
-    const res = await fetch(`http://localhost:3000/api/college-gallery/`, {
+    const res = await fetch(`/api/college-gallery/`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(collegeGalley),

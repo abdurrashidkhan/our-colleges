@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 export default async function insertCollegeEvent(collegeEventInfo,seIsLoading,reset) {
   try {
-    const res = await fetch(`http://localhost:3000/api/college-events/`, {
+    const res = await fetch(`/api/college-events/`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(collegeEventInfo),

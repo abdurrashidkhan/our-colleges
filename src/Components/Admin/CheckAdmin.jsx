@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 
 const getAdmin = async (email) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/users/${email}/`, {
+    const res = await fetch(`/api/users/${email}/`, {
       cache: "no-store",
     });
     if (!res.ok) {
