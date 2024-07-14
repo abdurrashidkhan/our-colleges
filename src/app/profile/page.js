@@ -10,11 +10,10 @@ import { auth } from "../firebase.init";
 import Loading from "../loading";
 
 export default function Profile() {
-
   const [user, loading, error] = useAuthState(auth);
   const [isLoading, setLoading] = useState(false);
   const [userFind, setUser] = useState([]);
-const checkingUsers = CheckingUser();
+  const checkingUsers = CheckingUser();
   const userFindInfo = async (email) => {
     setLoading(true);
     const { userData } = await userInfo(email);
@@ -39,8 +38,7 @@ const checkingUsers = CheckingUser();
       <div className="container mx-auto px-2 py-10">
         <div className="">
           <Image
-          
-          quality={100}
+            quality={100}
             width={100}
             height={100}
             src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -52,7 +50,7 @@ const checkingUsers = CheckingUser();
         <div className="flex items-center gap-5 justify-between px-5">
           <div className="">
             <Image
-            quality={100}
+              quality={100}
               width={100}
               height={100}
               className="rounded-full w-[100px] h-auto mt-5"

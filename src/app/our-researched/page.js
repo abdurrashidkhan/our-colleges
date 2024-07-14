@@ -15,7 +15,7 @@ export default function Researched() {
     setAllResearched(researchInfo);
     setLoading(false);
   };
-  console.log(allResearched);
+  // console.log(allResearched);
   useEffect(() => {
     allResearchedInfo();
   }, []);
@@ -51,7 +51,7 @@ export default function Researched() {
                   width={100}
                   height={100}
                   quality={100}
-                  className="rounded-t w-full h-auto"
+                  className="rounded-t w-full h-[200px]"
                   src={research.image}
                   alt="loading"
                 />
@@ -66,7 +66,7 @@ export default function Researched() {
               <div className="">
                 <Link
                   className="bg-[#A32D47] w-full block text-center text-[#fff] py-1 rounded-b mt-3"
-                  href={`/research/${research?._id}`}
+                  href={research?.researcherLink}
                 >
                   learn more
                 </Link>

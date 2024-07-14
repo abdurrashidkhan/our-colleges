@@ -6,7 +6,7 @@ const researchSchema = new Schema(
     description: { type: String, require: true },
     image: { type: String, require: true },
     date: { type: String, require: true },
-    catagories: { type: String, require: true },
+    researcherLink: { type: String, require: true },
     location : { type: String, require: true },
   },
   {

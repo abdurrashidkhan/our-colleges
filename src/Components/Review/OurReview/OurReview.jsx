@@ -64,7 +64,7 @@ export default function OurReview() {
             <div className="bg-[#fff] dark:bg-[#122033] shadow-2xl p-2 rounded">
               <div className="">
                 <p className="text-base text-center pt-5">
-                  {r.reviewDescription}
+                  {`${r.reviewDescription.slice(0, 200)}...`}
                 </p>
               </div>
               <div className="flex items-center justify-center gap-2 pt-4">

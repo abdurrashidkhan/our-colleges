@@ -54,7 +54,7 @@ export default function AddResearched() {
             title: data.title,
             researcher:data.researcher,
             description: data.description,
-            catagories: data.catagories,
+            researcherLink: data.researcherLink,
             date: data.date,
             image: img,
             // date: new Date(),
@@ -175,26 +175,26 @@ export default function AddResearched() {
                 </label>
               </div>
               <div className="w-full">
-                <label htmlFor="catagories" className=" ">
-                Catagories{" "}
+                <label htmlFor="researcherLink" className=" ">
+                Researcher Link{" "}
                 </label>
                 <input
-                  id="catagories"
-                  name="catagories"
+                  id="researcherLink"
+                  name="researcherLink"
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border dark:border-gray-700 border-gray-400  placeholder-gray-500 dark:text-slate-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm dark:bg-[#1f296117]  bg-[#fff] mt-2"
-                  placeholder=" catagories name" 
-                  {...register("catagories", {
+                  placeholder=" Researcher Link " 
+                  {...register("researcherLink", {
                     required: {
                       value: true,
-                      message: "please enter catagories name",
+                      message: "please enter researcherLink name",
                     },
                   })}
                 />
                 <label className="">
-                  {errors.catagories?.type === "required" && (
+                  {errors.researcherLink?.type === "required" && (
                     <span className="text-red-500 text-sm pt-2 capitalize">
-                      {errors.catagories.message}
+                      {errors.researcherLink.message}
                     </span>
                   )}
                 </label>

@@ -3,9 +3,9 @@ import research from "@/models/researchSchema";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  const { title, description, image, date, catagories, researcher } =
+  const { title, description, image, date, researcherLink, researcher } =
     await request.json();
-  const data = { title, description, image, date, catagories, researcher };
+  const data = { title, description, image, date, researcherLink, researcher };
   await connectMongodb();
   await research.create(data);
   return NextResponse.json(
