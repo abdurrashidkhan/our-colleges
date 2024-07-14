@@ -1,6 +1,7 @@
 "use client";
 import Loading from "@/app/loading";
 import allCollegeGallery from "@/database/find/allCollegeGallery/allCollegeGallery";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function CollegeGallery() {
@@ -41,12 +42,16 @@ export default function CollegeGallery() {
           {allGallery?.map((g) => (
             <div key={g?._id}>
               <Link href={`/college-event/${g?._id}`}>
-                <img
+                <Image
+                  placeholder="blur"
+                  quality={100}
+                  width={100}
+                  height={100}
                   className="rounded w-full h-[200px] shadow-2xl hover:scale-110 transform-gpu ease-in-out duration-500"
                   id=""
                   src={g?.image}
                   alt="loading"
-                ></img>
+                ></Image>
               </Link>
             </div>
           ))}

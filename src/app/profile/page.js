@@ -1,12 +1,12 @@
 "use client";
 import userInfo from "@/database/find/userFind/userFind";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FiEdit } from "react-icons/fi";
 import { auth } from "../firebase.init";
 import Loading from "../loading";
-
 
 export default function Profile() {
   const [user, loading, error] = useAuthState(auth);
@@ -36,7 +36,11 @@ export default function Profile() {
     <section className="">
       <div className="container mx-auto px-2">
         <div className="">
-          <img
+          <Image
+          placeholder="blur"
+          quality={100}
+            width={100}
+            height={100}
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw5fHxjb3ZlcnxlbnwwfDB8fHwxNzEwNzQxNzY0fDA&ixlib=rb-4.0.3&q=80&w=1080"
             alt="User Cover"
             className="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[14rem] xs:h-[11rem]"
@@ -45,11 +49,13 @@ export default function Profile() {
 
         <div className="flex items-center gap-5 justify-between px-5">
           <div className="">
-            <img
+            <Image
+            quality={100}
+              width={100}
+              height={100}
               className="rounded-full w-[100px] h-auto mt-5"
               alt="loading"
               src={userFind?.photoURL}
-              alt="loading"
             />
 
             <div className="py-3">
@@ -59,7 +65,7 @@ export default function Profile() {
           </div>
           <div className="">
             <Link href="/profile/update">
-            <FiEdit className="text-3xl" />
+              <FiEdit className="text-3xl" />
             </Link>
           </div>
         </div>

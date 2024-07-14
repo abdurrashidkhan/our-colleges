@@ -1,6 +1,7 @@
 "use client";
 import Loading from "@/app/loading";
 import uesAllEvents from "@/database/find/allEvents/allEvents";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function Colleges() {
@@ -43,7 +44,11 @@ export default function Colleges() {
                 <div key={e?._id}>
                   <div className="bg-[#fff] dark:bg-[#152338] shadow-2xl rounded">
                     <div className="">
-                      <img
+                      <Image
+                        placeholder="blur"
+                        quality={100}
+                        width={100}
+                        height={100}
                         className="w-[100%] h-[200px] rounded-t"
                         src={e?.image}
                         alt="loading"

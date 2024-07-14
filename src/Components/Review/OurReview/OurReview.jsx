@@ -13,6 +13,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import Loading from "@/app/loading";
 import allReviewInfo from "@/database/find/reviewFind/reviewFind";
+import Image from "next/image";
 import { FaRegStar, FaStar, FaStarHalf } from "react-icons/fa6";
 export default function OurReview() {
   const [isLoading, setLoading] = useState(false);
@@ -75,14 +76,15 @@ export default function OurReview() {
               </div>
               <div className="flex items-center justify-center gap-6 py-10">
                 <div className="">
-                  <img
-                    className="mx-auto rounded-full  shadow-2xl"
+                  <Image
                     loading="lazy"
-                    // placeholder="blur"
+                    quality={100}
+                    placeholder="blur"
                     src={r.image}
-                    width={"80"}
-                    height={"auto"}
+                    width={80}
+                    height={80}
                     alt="Picture of the author"
+                    className="mx-auto rounded-full  shadow-2xl h-auto"
                   />
                 </div>
                 <div className="">

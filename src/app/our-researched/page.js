@@ -1,5 +1,6 @@
 "use client";
 import allFindResearch from "@/database/find/allFindResearch/allFindResearch";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Loading from "../loading";
@@ -39,20 +40,39 @@ export default function Researched() {
           </h1>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center gap-5 py-10">
-          {allResearched?.map((research) => 
-            <div className="bg-[#fff] dark:bg-[#152338] shadow-2xl rounded" key={research?._id}>
-              <div className="">
-                <img className="rounded-t" src={research?.image} alt="loading" />
+          {allResearched?.map((research) => (
+            <div
+              className="bg-[#fff] dark:bg-[#152338] shadow-2xl rounded"
+              key={research?._id}
+            >
+              <div className="w-full h-auto">
+                <Image
+                placeholder="blur"
+                  width={100}
+                  height={100}
+                  quality={100}
+                  className="rounded-t w-full h-auto"
+                  src={research.image}
+                  alt="loading"
+                />
               </div>
               <div className="px-1">
-                <h2 className="py-3 text-lg font-medium capitalize">{`${research?.title.slice(0,30)}...`}</h2>
-                <h2>{`${research?.description.slice(0,150)}....`}</h2>
+                <h2 className="py-3 text-lg font-medium capitalize">{`${research?.title.slice(
+                  0,
+                  30
+                )}...`}</h2>
+                <h2>{`${research?.description.slice(0, 150)}....`}</h2>
               </div>
               <div className="">
-              <Link className="bg-[#A32D47] w-full block text-center text-[#fff] py-1 rounded-b mt-3" href={`/research/${research?._id}`}>learn more</Link>
+                <Link
+                  className="bg-[#A32D47] w-full block text-center text-[#fff] py-1 rounded-b mt-3"
+                  href={`/research/${research?._id}`}
+                >
+                  learn more
+                </Link>
               </div>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </section>

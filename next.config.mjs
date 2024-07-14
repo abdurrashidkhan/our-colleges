@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "graph.facebook.com"
       },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co"
+      },
     ],
   },
 };
