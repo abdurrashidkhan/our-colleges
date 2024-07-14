@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export async function GET(request, { params }) {
   const { email } = params;
   await connectMongodb();
-  const user = await users.findOne({ email: email });
-  const isAdmin = await user?.role === "admin";
-  return NextResponse.json({ isAdmin});
+  const userData = await users.findOne({ email: email });
+  const isAdmin = await userData?.role === "admin";
+  return NextResponse.json({ isAdmin,userData});
 }
