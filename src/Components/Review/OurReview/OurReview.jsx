@@ -28,7 +28,7 @@ export default function OurReview() {
     setReviewInfo(reviewInfo);
     setLoading(false);
   };
-  console.log(reviewInfo);
+  // console.log(reviewInfo);
   useEffect(() => {
     allReview();
   }, []);

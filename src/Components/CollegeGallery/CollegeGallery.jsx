@@ -14,7 +14,7 @@ export default function CollegeGallery() {
     setAllGallery(collegeGalleryInfo);
     setLoading(false);
   };
-  console.log(allGallery);
+  // console.log(allGallery);
   useEffect(() => {
     allCollegeGalleryInfo();
   }, []);
@@ -41,7 +41,7 @@ export default function CollegeGallery() {
         <div className="grid grid-rows-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center gap-5">
           {allGallery?.map((g) => (
             <div key={g?._id}>
-              <Link href={`/college-event/${g?._id}`}>
+              <Link href={`/college-gallery/${g?._id}`}>
                 <Image
                   quality={100}
                   width={100}

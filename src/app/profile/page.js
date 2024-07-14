@@ -21,7 +21,7 @@ export default function Profile() {
     setLoading(false);
   };
 
-  console.log(userFind?.displayName);
+  // console.log(userFind?.displayName);
 
   useEffect(() => {
     userFindInfo(user?.email);

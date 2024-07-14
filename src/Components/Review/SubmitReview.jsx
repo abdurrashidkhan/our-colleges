@@ -13,7 +13,7 @@ export default function SubmitReview() {
   const checkingUsers = CheckingUser(); // call checking user fund or no
   const [isLoading, seIsLoading] = useState(false);
   const [reviewStar, setReviewStar] = useState(2);
-  console.log(reviewStar);
+  // console.log(reviewStar);
   const {
     register,
     handleSubmit,
@@ -21,7 +21,7 @@ export default function SubmitReview() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
 
     const admissionInfo = {
       reviewStar: reviewStar,

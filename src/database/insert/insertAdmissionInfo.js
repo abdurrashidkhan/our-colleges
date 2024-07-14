@@ -8,7 +8,7 @@ export default async function insertAdmissionInfo(admissionInfo,seIsLoading,rese
       body: JSON.stringify(admissionInfo),
     });
     // }
-    console.log(res)
+    // console.log(res)
     if (!res.ok) {
       throw new Error("Failed to insert user info");
     }

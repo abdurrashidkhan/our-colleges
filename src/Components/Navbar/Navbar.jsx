@@ -12,7 +12,7 @@ import DarkMode from "../darkMode/darkMode";
 export default function Navbar() {
   const pathname = usePathname();
   const [user, loading, error] = useAuthState(auth);
-  console.log(user);
+  // console.log(user);
   const [signOut, outLoading, OutError] = useSignOut(auth);
   const userLogOut = async () => {
     await signOut();

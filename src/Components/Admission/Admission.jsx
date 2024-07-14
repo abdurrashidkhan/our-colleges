@@ -56,7 +56,7 @@ export default function AdmissionForm() {
             seIsLoading,
             reset
           );
-          console.log(insertProjects);
+          // console.log(insertProjects);
         }
       });
   };

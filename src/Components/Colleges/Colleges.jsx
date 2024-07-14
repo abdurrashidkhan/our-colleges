@@ -64,7 +64,7 @@ export default function Colleges() {
                     <div className="">
                       <Link
                         className="bg-[#A32D47] text-[#fff] py-1 px-5 w-[100%] block rounded-b text-center"
-                        href={"/dhaka_un"}
+                        href={`/college-details/${e?._id}`}
                       >
                         Details
                       </Link>

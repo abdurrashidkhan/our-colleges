@@ -1,6 +1,6 @@
 
 export default async function insertUser(data) {
-  console.log(data)
+  // console.log(data)
   const res = await fetch(`/api/merge-marketing/v1/users`, {
     method: "POST",
     headers: {
@@ -11,7 +11,7 @@ export default async function insertUser(data) {
   const result = res.json();
   if (res.ok) {
     // router.push('/')
-    console.log(result)
+    // console.log(result)
     console.log("add insert success");
   }
   // else if(e){
